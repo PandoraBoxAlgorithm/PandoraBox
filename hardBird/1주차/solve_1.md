@@ -3,12 +3,22 @@
 ✅ 문제를 한번 더 풀어보았나요 ? </br>
 
 ```c++
-#include <iostream>
+#include <string>
+#include <vector>
+
 using namespace std;
 
-//124나라의 숫자 
-int main(){
-    cout << "예시 코드입니다." << endl;
-    return 0;
+string solution(int n) {
+    string answer = "";
+    int arr[] = {4,1,2};
+    while(n){
+        answer=to_string(arr[n%3])+answer;
+        if(n%3==0)
+            n= n/3-1;
+        else
+        n/=3;
+
+    }
+    return answer;
 }
 ```
