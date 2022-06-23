@@ -3,10 +3,6 @@
 ✅ 문제를 한번 더 풀어보았나요 ? </br>
 
 ```c++
-#include <string>
-#include <vector>
-
-using namespace std;
 
 //2*n 타일링
 /*
