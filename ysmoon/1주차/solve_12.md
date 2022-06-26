@@ -24,12 +24,14 @@ class Solution {
         return answer;
     }
     public int gcd(int a, int b) {
-        while(b!=0) {
-		int r=a%b;
-		a=b;
-		b=r;
+        int x = Math.max(a,b);
+        int y = Math.min(a,b);
+        while( x%y !=0) {
+		int r=x%y;
+		x=y;
+		y=r;
         }
-        return a;
+        return y;
     }
 }
 ```
