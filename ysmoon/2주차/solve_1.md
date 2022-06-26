@@ -13,7 +13,25 @@
 타일을 세로로 배치 하는 경우
 예를들어서 n이 7인 직사각형은 다음과 같이 채울 수 있습니다.
 
+![image](https://user-images.githubusercontent.com/51254596/175820131-cf238a8c-252c-4394-aa3d-de4b619f180a.png)
+
+
 직사각형의 가로의 길이 n이 매개변수로 주어질 때, 이 직사각형을 채우는 방법의 수를 return 하는 solution 함수를 완성해주세요.
 */
 
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        int[] arr = new int[n];
+        arr[0] = 1;
+        arr[1] = 2;
+        
+        for (int i = 2; i < n; i++) {
+            int num = arr[i - 1] + arr[i - 2];
+            arr[i] = num % 1000000007;
+        }
+        
+        return arr[n-1];
+    }
+}
 ```
