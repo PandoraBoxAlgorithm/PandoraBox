@@ -22,9 +22,9 @@ class Solution {
         int[] answer = new int[n+1];
 	Arrays.sort(money);
 
-	answer[0] = 1;
-	for(int i=0; i<money.length; i++) {
-		for(int j=money[i]; j<=n; j++) {
+	answer[0] = 1; //0원일때
+	for(int i=0; i<money.length; i++) { 
+		for(int j=money[i]; j<=n; j++) { // 현재 화폐~ 다음 화폐까지 가능한 수 체크
 			answer[j] += answer[j-money[i]];
 		}
 	}
