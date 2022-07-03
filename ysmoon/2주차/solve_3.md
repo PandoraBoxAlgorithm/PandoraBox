@@ -18,18 +18,18 @@ Finn은 편의점에서 야간 아르바이트를 하고 있습니다. 야간에
 
 import java.util.Arrays;
 class Solution {
-  public int solution(int n, int[] money) {
-      int[] answer = new int[n+1];
-		  Arrays.sort(money);
-		
-		  answer[0] = 1;
-		  for(int i=0; i<money.length; i++) {
-			  for(int j=money[i]; j<=n; j++) {
-				  answer[j] += answer[j-money[i]];
-			  }
-		  } 
-		
-		  return answer[n] % 1000000007;
-  }
+    public int solution(int n, int[] money) {
+        int[] answer = new int[n+1];
+	Arrays.sort(money);
+
+	answer[0] = 1;
+	for(int i=0; i<money.length; i++) {
+		for(int j=money[i]; j<=n; j++) {
+			answer[j] += answer[j-money[i]];
+		}
+	}
+
+	return answer[n] % 1000000007;
+    }
 }
 ```
