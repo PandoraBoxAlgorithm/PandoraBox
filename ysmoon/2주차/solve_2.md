@@ -15,13 +15,13 @@ class Solution
 {
     public int solution(String s)
     {
-        char[] chr = s.toCharArray();
+        char[] arr = s.toCharArray();
          
         for (int i = s.length(); i > 1; i--) { // 가장 긴 문자열부터
             for (int j = 0; j + i <= s.length(); j++) {
                 boolean chk = true;
                 for (int k = 0; k < i/2; k++) {
-                    if (chr[j + k] != chr[j + i  - k - 1]) {
+                    if (arr[j + k] != arr[j + i  - k - 1]) {
                         chk = false;
                         break;
                     }
