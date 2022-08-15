@@ -13,4 +13,44 @@ N개의 마을로 이루어진 나라가 있습니다. 이 나라의 각 마을�
 마을의 개수 N, 각 마을을 연결하는 도로의 정보 road, 음식 배달이 가능한 시간 K가 매개변수로 주어질 때, 음식 주문을 받을 수 있는 마을의 개수를 return 하도록 solution 함수를 완성해주세요.
 */
 
+public int solution(int N, int[][] road, int K) {
+        int[][] map = new int[N][N];                                        //각 정점별 최단거리 배열.
+        
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[0].length; j++) {
+                if (i == j) {                                                //i==j일땐 0;
+                    map[i][j] = 0;
+                    continue;
+                }
+                map[i][j] = 500001;                                            //K가 500000이하 자연수이므로 
+            }
+        }
+ 
+        for (int i = 0; i < road.length; i++) { // road배열 적용
+            if(map[road[i][0] - 1][road[i][1] - 1] < road[i][2])  continue;   //원래 있는 길이 더 적은 길이면 무시.
+            map[road[i][0] - 1][road[i][1] - 1] = road[i][2];                  //양쪽으로 연결.
+            map[road[i][1] - 1][road[i][0] - 1] = road[i][2];
+        }
+        
+        for (int k = 0; k < N; k++) {                                           //플로이드 와샬 알고리즘
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    if(i == j) continue;
+                    if (map[i][j] > map[i][k] + map[k][j]) {
+                        map[i][j] = map[i][k] + map[k][j];
+                    }
+                }
+            }
+        }
+ 
+        int count = 0;
+ 
+        for (int i = 0; i < map[0].length; i++) {
+            if (map[0][i] <= K) 
+                count++;
+        }
+        
+        return count;
+    }
+
 ```
